@@ -1,7 +1,9 @@
 #include <stdio.h>
+
 /**
- * main - Rntry point
- * return: always 0 (success)
+ * main - A program that prints a string using puts.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
