@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - Entry projet
- * Description: 'prints the alphabet in lowercase'
+ * Description: 'print alphabets in lowercase'
  * Return: Always 0
  */
 int main(void)
