@@ -1,4 +1,4 @@
-#include "main.f"
+#include "main.h"
 /**
  * swap_int - function that swaps the values of two integers
  * @a: first int
@@ -12,6 +12,4 @@ void swap_int(int *a, int *b)
 	s = *a;
 	*a = *b;
 	*b = s;
-
-	return (0);
 }
