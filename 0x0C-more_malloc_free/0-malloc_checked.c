@@ -1,15 +1,17 @@
 #include "main.h"
+#include <stdlib.h>
+
 /*Red-Rim*/
 /**
  * *malloc_checked - Write a function that allocates memory using malloc
  * @b: int
- * Return: print to the allocated memory
+ * Return: pointer to the allocated memory
  */
 void *malloc_checked(unsigned int b)
 {
-	int *malloc = malloc(b);
+	int *d = malloc(b);
 
-	if (malloc == 0)
+	if (d == 0)
 		exit(98);
-	return (malloc);
+	return (d);
 }
