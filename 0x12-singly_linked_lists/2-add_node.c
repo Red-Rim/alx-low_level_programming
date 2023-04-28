@@ -1,9 +1,11 @@
 #include "lists.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*Red-Rim*/
 /**
- * *add_node - function adds a new node at the beginning of a list_t list
+ * add_node - function adds a new node at the beginning of a list_t list
  * @str: new string add to node
  * @head: double pointer to the list_t list
  * Return: the address of the new element, or NULL if it failed
