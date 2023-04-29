@@ -30,7 +30,7 @@ int main(void)
 	printf("%d\n", r);
 	r = wildcmp("main-main.c", "ma*in.c");
 	printf("%d\n", r);
- 	 = wildcmp("main", "main*d");
+	r = wildcmp("main", "main*d");
 	printf("%d\n", r);
 	r = wildcmp("abc", "*b");
 	printf("%d\n", r);
