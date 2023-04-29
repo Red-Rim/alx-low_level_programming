@@ -20,10 +20,15 @@ int _strlen_recursion(char *s)
 int is_palindrome(char *s)
 {
 	int len = _strlen_recursion(s);
+	char *start = s;
+	char *end = s + len - 1;
 
-	if (len <= 1)
-		return (1);
-	if (*s == *(s + len - 1))
-		return (is_palindrome(s + 1) && 1);
-	return (0);
+	while (start < end)
+	{
+		if (*start != *end)
+			return (0);
+		start++;
+		end--;
+	}
+	return (1);
 }
