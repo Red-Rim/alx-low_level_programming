@@ -1,6 +1,8 @@
 #include "lists_t"
 #include <stdio.h>
 
+void print(void)__attribute__((constructor));
+
 /*Red-Rim*/
 /**
  * print - a function that prints before the main is executed
