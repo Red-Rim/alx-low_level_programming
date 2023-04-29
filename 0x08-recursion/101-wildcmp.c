@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * wildcmp - check if strings could be considered identical
+ * wildcmp - strings could be considered identical
  * @s1: string_1 base address
  * @s2: string_2 base address
  * Return: 1 if s is palindrome, 0 otherwise
