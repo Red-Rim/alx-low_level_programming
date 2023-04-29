@@ -1,3 +1,4 @@
+/*Red-Rim*/
 global main
 extern printf
 main:
