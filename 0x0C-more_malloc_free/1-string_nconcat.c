@@ -11,7 +11,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s;
-	unsigned int i, j, len1, len2;
+	unsigned int i, j, len1 = 0, len2 = 0;
 
 	/*check if the string are null*/
 
@@ -22,28 +22,29 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	/*compute the length of the string.*/
 
-	for (len1 = 0; s1[len1] != '\0'; len1++)
+	while (s1[len1] != '\0')
+		len1++;
+	while (s2[len2] != '\0')
+		len2++;
 
-	for (len2 = 0; s2[len2] != '\0'; len2++)
-
-	/*Memory reservation_for case 1 & 2.*/
-
+	/*allocate memory for the concatenated string*/
+	if (n >= len2)
+		n = len2;
 	s = malloc(len1 + n + 1);
-
 	if (s == NULL)
-	{
 		return (NULL);
-	}
 
-		for (i = 0; s1[i] != '\0'; i++)
-			s[i] = s1[i];
+	/* copy the first string*/
+	for (i = 0; i < len1; i++)
+		s[i] = s1[i];
 
-		for (j = 0; j < n ; j++)
-		{
-			s[i] = s2[j];
-			i++;
-		}
+	/*copy the second string up to n bytes*/
+	for (j = 0; j < n; j++, i++)
+		s[i] = s2[j];
 
-		s[i] = '\0';
-		return (s);
+	/*null-terminate the resulting string*/
+	s[i] = '\0';
+
+	/*return the concatenated string*/
+	return (s);
 }
