@@ -5,8 +5,7 @@
 
 /**
  * main - check the code
- * 
- * Return: Always 0.
+ * Return: Always 0
  */
 int main(void)
 {
@@ -26,7 +25,7 @@ int main(void)
 	new->next = head;
 	head = new;
 	n = print_listint(head);
- 	printf("-> %lu elements\n", n);
+	printf("-> %lu elements\n", n);
 	free(new);
 	return (0);
 }
