@@ -1,11 +1,10 @@
-#include "lists.h"
 #include <stdio.h>
-
-/*Red-Rim*/
 /**
- * print - a function that prints before the main is executed
+ * first - function that prints
  */
-void __attribute__ ((constructor)) before_main()
+void first(void) __attribute__ ((constructor));
+/* Red-Rim */
+void first(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
