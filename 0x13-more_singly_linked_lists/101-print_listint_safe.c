@@ -4,78 +4,50 @@
 
 /*Red-Rim*/
 /**
- * looped - counts the numb of unique nodes in a looped linked list
- * @head: pointer to the head of the listint_t to check
- * Return: if the list is not looped - 0
- * otherwise - the numb of unique nodes in the list
- */
-size_t looped(const listint_t *head)
-{
-	const listint_t *awdi, *luna;
-	size_t nodes = 1;
-
-	if (head == NULL || head->next == NULL)
-		return (0);
-
-	awdi = head->next;
-	luna = (head->next)->next;
-
-	while (luna)
-	{
-		if (awdi == luna)
-		{
-			awdi = head;
-			while (awdi != luna)
-			{
-				nodes++;
-				awdi = awdi->next;
-				luna = luna->next;
-			}
-
-			while (awdi != luna)
-			{
-				nodes++;
-				awdi = awdi->next;
-			}
-
-			return (nodes);
-		}
-
-		awdi = awdi->next;
-		luna = (luna->next)->next;
-	}
-	return (0);
-}
-
-/**
- * print_listint_safe -  prints a listint_t linked list
- * @head: first node
- * Return: numb of nodes in the list
- */
+* print_listint_safe - prints a list
+* @head: first node
+* Return: the number of nodes
+*/
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes, c = 0;
+	size_t i = 0;
+	long int luna;
+	size_t n;
+	const listint_t *ama = NULL;
+	const listint_t *nodes = NULL;
 
-	nodes = looped(head);
+	while (head)
 
-	if (nodes == 0)
+	ama = head;
+
+	while (ama)
 	{
-	for (; head != NULL; nodes++)
-		{
+		luna = head - head->next;
+		printf("[%p] %d\n", (void *)ama, ama->n);
+		i++;
 		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-		}
-	}
-	else
-	{
-
-	for (c = 0; c < nodes; c++)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
+		if (luna > 0)
 			head = head->next;
+		else
+		ama = ama->next;
+		nodes = head;
+		n = 0;
+
+		while (n < i)
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+			break;
+			if (ama == nodes)
+			{
+				printf("-> [%p] %d\n", (void *)ama, ama->n);
+				return (i);
+			}
+			nodes = nodes->next;
+			n++;
 		}
-		printf("-> [%p] %d\n", (void *)head, head->n);
+		if (!head)
+			exit(98);
 	}
 
-	return (nodes);
+	return (i);
 }
