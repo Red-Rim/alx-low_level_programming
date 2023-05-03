@@ -1,38 +1,39 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /*Red-Rim*/
 /**
- * free_listint_safe - a function that frees a listint_t list
- * @h: pointer to the address of the head of the list
- * Return: the size of the list that was freed
+ * free_listint_safe - frees a linked list
+ * @h: first node
+ * Return: numb of elements in the freed list
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t c = 0;
+	size_t len = 0;
+	int diff;
+	listint_t *ama;
 
-	if (h == NULL || *h == NULL)
-		return (c);
+	if (!h || !*h)
+		return (0);
 
-	while (*h != NULL)
+	while (*h)
 	{
-		if (*h <= (*h)->next)
+		diff = *h - (*h)->next;
+		if (diff > 0)
 		{
+			ama = (*h)->next;
 			free(*h);
-			c++;
-			break;
+			*h = ama;
+			len++;
 		}
 		else
 		{
-			listint_t *ama = (*h)->next;
-
 			free(*h);
-			c++;
-			*h = ama;
+			*h = NULL;
+			len++;
+			break;
 		}
 	}
-
 	*h = NULL;
-	return (c);
+	return (len);
 }
