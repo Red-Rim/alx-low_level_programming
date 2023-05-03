@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /* Red-Rim*/
  /**
- * argstostr - main entry
+ * argstostr - concatenates all the arguments of your program
  * @ac: int input
  * @av: double pointer array
  * Return: 0
