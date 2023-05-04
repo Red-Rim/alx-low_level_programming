@@ -9,14 +9,16 @@ void print_binary(unsigned long int n)
 {
 	unsigned long int ama = 1;
 
-	ama <<= ((sizeof(unsigned long int) * 8) - 1);
+	int i;
 
-	while (ama > 0)
+	for (i = 0; i < 63; i++)
 	{
-		if (n & ama)
+		if ((n & (ama << i)) || (i == 62))
+		{
 			_putchar('1');
-		else
-			_putchar('0');
-		ama >>= 1;
+			ama = 1;
+			continue;
+		}
+		_putchar('0');
 	}
 }
