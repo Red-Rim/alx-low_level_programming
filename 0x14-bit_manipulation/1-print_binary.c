@@ -2,28 +2,31 @@
 
 /*Red-Rim*/
 /**
-* print_binary -  prints the binary representation of a number
-* @n : the num converted
-*/
+ * print_binary - prints the binary representation of a number
+ * @n: numb converted
+ * Return: void
+ */
 void print_binary(unsigned long int n)
 {
-	unsigned long int ama = n;
+	unsigned long int ama = 1;
 
+	int baka = 0;
+
+	ama <<= 63;
 	if (n == 0)
-	{
 		_putchar('0');
-		return;
-	}
-	while ((ama >> 1) != 0)
+
+	while (ama > 0)
 	{
-		ama <<= 1;
-	}
-	while (ama != 0)
-	{
-		if (n & ama)
-			_putchar('1');
-		else
-			_putchar('0');
-			ama >>= 1;
+			if ((n & ama) == 0 && baka == 1)
+				_putchar('0');
+
+			if ((n & ama) != 0)
+			{
+				_putchar('1');
+				baka = 1;
+			}
+
+			ama = ama >> 1;
 	}
 }
