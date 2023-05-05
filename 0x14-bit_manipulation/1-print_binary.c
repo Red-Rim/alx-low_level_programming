@@ -9,16 +9,23 @@ void print_binary(unsigned long int n)
 {
 	unsigned long int ama = 1;
 
-	int i;
+	int baka = 0;
 
-	for (i = 0; i < 63; i++)
-	{
-		if ((n & (ama << i)) || (i == 62))
-		{
-			_putchar('1');
-			ama = 1;
-			continue;
-		}
+	ama <<= 63;
+	if (n == 0)
 		_putchar('0');
+
+	while (ama > 0)
+	{
+			if ((n & ama) == 0 && baka == 1)
+				_putchar('0');
+
+			if ((n & ama) != 0)
+			{
+				_putchar('1');
+				baka = 1;
+			}
+
+			ama = ama >> 1;
 	}
 }
