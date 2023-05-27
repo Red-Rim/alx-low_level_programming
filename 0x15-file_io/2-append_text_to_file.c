@@ -7,29 +7,25 @@
  * @text_content: the text to append to the file
  * Return: 1 on success, or -1 on failure
  */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, bytes_written, text_size = 0;
+	int s, kteb, len = 0;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
 
-	if (text_content)
+	if (text_content != NULL)
 	{
-		while (text_content[text_size])
-			text_size++;
+		for (len = 0; text_content[len];)
+			len++;
 	}
+	s = open(filename, O_WRONLY | O_APPEND);
+	kteb = write(s, text_content, len);
 
-	fd = open(filename, O_WRONLY | O_APPEND);
-			if (fd == -1)
-			return (-1);
+	if (s == -1 || kteb == -1)
+		return (-1);
+	close(s);
 
-			if (text_size)
-				bytes_written = write(fd, text_content, text_size);
-			close(fd);
-
-			if (bytes_written != text_size)
-				return (-1);
-
-			return (-1);
+	return (1);
 }
