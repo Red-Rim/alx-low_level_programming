@@ -4,11 +4,10 @@
 
 /**
  * hash_table_set - Adds an element to the hash table.
- * @ht: The hash table to add/update the key/value to.
- * @key: The key to add/update.
- * @value: The value associated with the key.
- *
- * Return: 1 if the operation succeeds, 0 otherwise.
+ * @ht: hash table to a
+ * @key: key
+ * @value: value
+ * Return: 1 if success, 0 otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
