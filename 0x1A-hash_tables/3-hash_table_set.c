@@ -3,8 +3,8 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set - Adds an element to the hash table.
- * @ht: hash table to a
+ * hash_table_set - dds an element to the hash table
+ * @ht: hash table
  * @key: key
  * @value: value
  * Return: 1 if success, 0 otherwise
@@ -17,7 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     if (ht == NULL || key == NULL || *key == '\0')
         return (0);
 
-    i = key_i((const unsigned char *)key, ht->size);
+    i = key_index((const unsigned char *)key, ht->size);
     tmp = ht->array[i];
 
     while (tmp != NULL)
